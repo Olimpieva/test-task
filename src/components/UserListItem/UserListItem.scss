@@ -1,0 +1,41 @@
+%tplFont {
+    font-size: 11px;
+    line-height: 1.18;
+    font-weight: 400;
+}
+
+.user-short-info {
+    width: 100%;
+    min-width: 420px;
+    margin: 0 0 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    border-radius: 8px;
+    background-color: #F3F3F3;
+
+    &__item {
+        margin-bottom: 7px;
+        padding: 0;
+        display: flex;
+    
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        margin: 0 7px 0 0;
+        padding: 0;
+        color: #A3A3A3;
+        @extend %tplFont;
+    }
+
+    &__description {
+        @extend %tplFont;
+    }
+}
+
+

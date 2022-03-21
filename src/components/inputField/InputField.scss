@@ -1,0 +1,46 @@
+.input-field {
+    padding: 0;
+    margin: 0 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: none;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__caption {
+        margin-bottom: 3px;
+        font-size: 8px;
+        line-height: 1.125;
+    }
+
+    &__input {
+        width: 50%;
+        min-width: 211px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        font-size: 10px;
+        line-height: 1.2;
+        border: 1px solid #D8D8D8;
+        border-radius: 5px;
+
+        &:focus{
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        &:disabled {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        &:invalid {
+            border: 1px solid #D91313;
+        }
+
+        &_area {
+            width: 80%;
+            min-width: 420px;
+        }
+    }
+}

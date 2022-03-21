@@ -1,0 +1,38 @@
+
+.user-profile {
+	display: flex;
+
+	&__content {
+		padding: 17px 40px 0 35px;
+		flex: 3.375;
+		min-width: 438px;
+		margin: 0;
+	}
+
+	&__title {
+		display: inline;
+		margin: 0;
+		align-self: center;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.18;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__input-list {
+		margin-bottom: 10px;
+		padding: 20px 6px 20px 12px;
+		border: 1px solid #F3F3F3;
+		border-radius: 8px;
+	}
+}

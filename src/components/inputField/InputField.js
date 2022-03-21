@@ -1,7 +1,7 @@
 import React from "react";
 import FormError from "../FormError/FormError";
 
-import './InputField.css';
+import './InputField.scss';
 
 function InputField(props) {
     const { type, formName, name, title, minLength = 2, pattern, required, isEdited, value, onChange, error } = props;

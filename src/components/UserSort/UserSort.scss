@@ -1,0 +1,17 @@
+.user-sort {
+    min-height: 100vh;
+    padding: 35px 20px 0 26px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #BDBDBD;
+
+    &__title {
+        margin: 0 0 10px;
+        font-size: 12px;
+        line-height: 1.18;
+        font-weight: 400;
+    }
+}
+

@@ -1,6 +1,6 @@
 import React from "react";
 
-import './FormError.css'
+import './FormError.scss'
 
 function FormError(props) {
     const { name, isHidden, message } = props;

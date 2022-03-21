@@ -1,0 +1,50 @@
+$mainColor: #4b51ef;
+
+.button {
+	padding: 5px 15px;
+	font-size: 12px;
+	line-height: 1.18;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: opacity .3s ease-in-out;
+    -moz-transition: opacity ease-in-out .3s;
+
+	&:hover {
+		opacity: .8;
+	}
+
+	&_sort{
+		margin-bottom: 10px;
+		background-color:$mainColor;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&_edit{
+		background-color: $mainColor;
+	}
+
+	&_details{
+		align-self: flex-end;
+		padding: 0;
+		background-color: transparent;
+		color: $mainColor;
+	}
+
+	&_submit {
+		background-color: #52cf4f;
+		align-self: flex-end;
+
+		&:disabled {
+			background: #afafaf;
+			user-select: none;
+			pointer-events: none;
+			cursor: default;
+		}
+	}
+
+}

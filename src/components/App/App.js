@@ -17,8 +17,7 @@ function App(props) {
   }, []);
 
   return (
-    <div className="App">
-      App
+    <div className="app">
       <Routes>
         <Route path="/" element={<Navigate replace to="/users" />} />
         <Route path="/users" element={<UserList />} />
