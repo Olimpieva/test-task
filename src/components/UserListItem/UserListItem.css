@@ -1,0 +1,16 @@
+.user-short-info {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.user-short-info__item {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.user-short-info__title {
+    margin: 0;
+    padding: 0;
+}
