@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { getAllUsers } from '../../redux/actions';
 
 import UserList from '../UserList/UserList';
 import UserProfile from '../UserProfile/UserProfile';
 
-import './App.css';
+import './App.scss';
 
 function App(props) {
 
@@ -26,6 +26,6 @@ function App(props) {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

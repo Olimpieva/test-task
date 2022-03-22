@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import Button from '../Button/Button';
 
 import './UserListItem.scss';
@@ -35,6 +36,6 @@ function UserListItem(props) {
             <Button type='button' name='details' title='Подробнее' onClick={MoreButtonClickHandler} />
         </ul>
     );
-}
+};
 
 export default UserListItem;

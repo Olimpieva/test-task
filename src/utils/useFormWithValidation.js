@@ -18,7 +18,7 @@ export function useFormWithValidation(initialState = { values: {}, isFormValid: 
       const updatedErrorMessages = {
         ...defaultValidationErrorMessages,
         ...overrideErrorMessages[name]
-      }
+      };
 
       const [, getValidationMessage] = Object.entries(updatedErrorMessages).find(([errorKey]) => {
         const hasError = validityState[errorKey];
@@ -29,12 +29,12 @@ export function useFormWithValidation(initialState = { values: {}, isFormValid: 
       });
 
       errorMessage = getValidationMessage({ minLength });
-    }
+    };
 
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: errorMessage });
     setIsFormValid(input.closest('form').checkValidity());
-  }
+  };
 
   const resetForm = useCallback((newValues = {}, newErrors = {}, newIsFormValid = false) => {
     setValues(newValues);
@@ -44,4 +44,4 @@ export function useFormWithValidation(initialState = { values: {}, isFormValid: 
     [setValues, setErrors, setIsFormValid]);
 
   return { values, setValues, handleChange, errors, setErrors, isFormValid, setIsFormValid, resetForm, };
-}
+};

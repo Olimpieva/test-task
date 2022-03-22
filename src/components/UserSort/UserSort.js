@@ -3,19 +3,15 @@ import Button from '../Button/Button';
 
 import './UserSort.scss';
 
-function UserSort() {
-
-    function handleSortUserList(event) {
-        console.log(event)
-    }
+function UserSort({ onSort }) {
 
     return (
         <section className="user-sort">
             <h2 className='user-sort__title'>Сортировка</h2>
-            <Button type='button' name='sort' title='по городу' onClick={handleSortUserList} />
-            <Button type='button' name='sort' title='по компании' onClick={handleSortUserList} />
+            <Button type='button' name='sort' id='city' title='по городу' onClick={(event) => onSort(event)} />
+            <Button type='button' name='sort' id='company' title='по компании' onClick={(event) => onSort(event)} />
         </section>
     );
-}
+};
 
 export default UserSort;

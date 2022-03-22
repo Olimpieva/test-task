@@ -1,4 +1,5 @@
 import React from "react";
+
 import FormError from "../FormError/FormError";
 
 import './InputField.scss';
@@ -18,9 +19,7 @@ function InputField(props) {
                 required={required}
                 disabled={!isEdited}
                 value={value}
-                onChange={(event) => {
-                    onChange(event.target)
-                }}
+                onChange={event => onChange(event.target)}
             />
             <FormError
                 name={name}
@@ -28,7 +27,7 @@ function InputField(props) {
                 message={error}
             />
         </fieldset>
-    )
-}
+    );
+};
 
 export default InputField;
