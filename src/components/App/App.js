@@ -8,9 +8,9 @@ import UserProfile from '../UserProfile/UserProfile';
 
 import './App.scss';
 
-function App(props) {
+const ghPagesUrl = process.env.PUBLIC_URL;
 
-  const ghPagesUrl = process.env.PUBLIC_URL;
+function App(props) {
 
   const dispatch = useDispatch();
 
