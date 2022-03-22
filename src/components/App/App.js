@@ -10,6 +10,8 @@ import './App.scss';
 
 function App(props) {
 
+  const ghPagesUrl = process.env.PUBLIC_URL;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,10 +21,10 @@ function App(props) {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Navigate replace to="/users" />} />
-        <Route path="/users" element={<UserList />} />
-        <Route path="/users/:id" element={<UserProfile />} />
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route path={ghPagesUrl + "/"} element={<Navigate replace to={ghPagesUrl + "/users"} />} />
+        <Route path={ghPagesUrl + "/users"} element={<UserList />} />
+        <Route path={ghPagesUrl + "/users/:id"} element={<UserProfile />} />
+        <Route path={ghPagesUrl + "*"} element={<div className='app__not-found'>Page Not Found</div>} />
       </Routes>
     </div>
   );

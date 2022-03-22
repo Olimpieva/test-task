@@ -11,6 +11,8 @@ import UserSort from '../UserSort/UserSort';
 
 import './UserProfile.scss';
 
+const ghPagesUrl = process.env.PUBLIC_URL;
+
 function UserProfile(props) {
 
     const { id: currentUserId } = useParams();
@@ -55,7 +57,7 @@ function UserProfile(props) {
 
     return (
         <div className="user-profile">
-            <UserSort onSort={() => navigate(`/users`)} />
+            <UserSort onSort={() => navigate(`${ghPagesUrl}/users`)} />
             <section className='user-profile__content'>
                 <div className='user-profile__container'>
                     <h2 className='user-profile__title'>Профиль пользователя</h2>

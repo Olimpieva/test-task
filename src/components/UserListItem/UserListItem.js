@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 
 import './UserListItem.scss';
 
+const ghPagesUrl = process.env.PUBLIC_URL;
+
 function UserListItem(props) {
 
     const { userId, name, city = 'undefind', company } = props;
@@ -12,7 +14,7 @@ function UserListItem(props) {
     const navigate = useNavigate();
 
     function MoreButtonClickHandler() {
-        navigate(`/users/${userId}`);
+        navigate(`${ghPagesUrl}/users/${userId}`);
     };
 
     return (
