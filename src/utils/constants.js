@@ -1,11 +1,5 @@
 export const MAIN_URL = 'https://jsonplaceholder.typicode.com/users';
 
-export const GET_ALL_USERS = 'GET_ALL_USERS';
-
-export const REQUEST = '_REQUEST';
-export const SUCCESS = '_SUCCESS';
-export const FAILURE = '_FAILURE';
-
 export const defaultValidationErrorMessages = {
     valueMissing: () => 'Поле должно быть заполнено.',
     tooShort: ({ minLength }) => `Поле должно содержать минимум ${minLength} символ${minLength < 5 ? `а` : `ов`}`,
@@ -16,4 +10,9 @@ export const defaultValidationErrorMessages = {
 export const emailValidationErrorMessages = {
     patternMismatch: () => 'Поле должно содержать корректный адрес.',
     typeMismatch: () => 'Поле должно содержать корректный адрес.',
+};
+
+export const requestErrorMessages = {
+    serverError: () => 'Internal server error. Try later.',
+    otherError: ({ errorCode, action }) => `Sorry, an error ${errorCode} occurred while ${action}`,
 };

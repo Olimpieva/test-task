@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { usersShortInfoSelector } from '../../redux/selectors';
 import UserListItem from '../UserListItem/UserListItem';
 import UserSort from '../UserSort/UserSort';
 import Preloader from '../Preloader/Preloader';
@@ -11,21 +12,22 @@ function UserList() {
 
     const [listSortType, setListSortType] = useState({ type: null });
 
-    const { data, loading } = useSelector(state => state.users);
+    const { loading, error } = useSelector(state => state.users);
+    const userList = useSelector(usersShortInfoSelector);
 
     const getSortUsers = useCallback(() => {
-        let allUsers = data;
+        let allUsers = userList;
 
         if (listSortType.type === 'city') {
-            return allUsers.sort((a, b) => a.address.city.localeCompare(b.address.city));
+            return allUsers.sort((a, b) => a.city.localeCompare(b.city));
         };
 
         if (listSortType.type === 'company') {
-            return allUsers.sort((a, b) => a.company.name.localeCompare(b.company.name));
+            return allUsers.sort((a, b) => a.name.localeCompare(b.name));
         };
 
         return allUsers;
-    }, [listSortType, data]);
+    }, [listSortType, userList]);
 
     function handleSortUserList(event) {
         setListSortType({ type: event.target.id });
@@ -44,19 +46,15 @@ function UserList() {
                             {getSortUsers().map((user) => {
                                 return (
                                     <li className='user-list__item' key={user.id}>
-                                        <UserListItem
-                                            userId={user.id}
-                                            name={user.name}
-                                            city={user.address.city}
-                                            company={user.company.name}
-                                        />
+                                        <UserListItem user={user} />
                                     </li>
                                 )
                             })}
                         </ul>
-                        <span className='user-list__text'>Найдено {data.length} пользователей</span>
+                        {!error && <span className='user-list__text'>Найдено {userList.length} пользователей</span>}
                     </>
                 }
+                <span className={`user-list__error ${error && 'user-list__error_shown'}`}>{error?.message}</span>
             </section>
         </main>
     );

@@ -40,3 +40,18 @@
         }
     }
 }
+
+@media screen and (min-width: 1024px) {
+
+    .input-field {
+        
+        &__caption {
+            font-size: 10px;
+        }
+
+        &__input {
+            font-size: 12px;
+        }
+    }
+
+  }

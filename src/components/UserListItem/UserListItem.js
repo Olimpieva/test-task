@@ -7,9 +7,9 @@ import './UserListItem.scss';
 
 const ghPagesUrl = process.env.PUBLIC_URL;
 
-function UserListItem(props) {
+function UserListItem({ user }) {
 
-    const { userId, name, city = 'undefind', company } = props;
+    const { id: userId, name, city, company } = user;
 
     const navigate = useNavigate();
 

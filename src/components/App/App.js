@@ -16,7 +16,7 @@ function App(props) {
 
   useEffect(() => {
     dispatch(getAllUsers());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -24,7 +24,7 @@ function App(props) {
         <Route path={ghPagesUrl + "/"} element={<Navigate replace to={ghPagesUrl + "/users"} />} />
         <Route path={ghPagesUrl + "/users"} element={<UserList />} />
         <Route path={ghPagesUrl + "/users/:id"} element={<UserProfile />} />
-        <Route path={ghPagesUrl + "*"} element={<div className='app__not-found'>Page Not Found</div>} />
+        <Route path={ghPagesUrl + "*"} element={<div className='app__not-found'><p>Page Not Found</p></div>} />
       </Routes>
     </div>
   );

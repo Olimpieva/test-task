@@ -1,10 +1,10 @@
 import api from "../../utils/Api";
-import { GET_ALL_USERS, REQUEST, SUCCESS, FAILURE } from "../../utils/constans";
+import handleError from "../../utils/errorHandler";
+import { GET_ALL_USERS, REQUEST, SUCCESS, FAILURE } from "./actionTypes";
 
 export const getAllUsers = () => async (dispatch, getState) => {
 
     const { loading, loaded } = getState();
-    let allUsers;
 
     if (loading || loaded) {
         return;
@@ -13,10 +13,9 @@ export const getAllUsers = () => async (dispatch, getState) => {
     dispatch({ type: GET_ALL_USERS + REQUEST, payload: 'Loading...' });
 
     try {
-        allUsers = await api.getAllUsers();
+        const allUsers = await api.getAllUsers();
+        dispatch({ type: GET_ALL_USERS + SUCCESS, payload: allUsers });
     } catch (error) {
-        dispatch({ type: GET_ALL_USERS + FAILURE, payload: error });
+        dispatch({ type: GET_ALL_USERS + FAILURE, payload: handleError({ errorCode: error.status, action: GET_ALL_USERS }) });
     };
-
-    dispatch({ type: GET_ALL_USERS + SUCCESS, payload: allUsers });
 };

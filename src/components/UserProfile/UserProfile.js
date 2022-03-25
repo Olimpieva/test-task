@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { emailValidationErrorMessages } from '../../utils/constans';
+import { userProfilesSelector } from '../../redux/selectors';
+import { emailValidationErrorMessages } from '../../utils/constants';
 import { useFormWithValidation } from '../../utils/useFormWithValidation';
 import Button from '../Button/Button';
 import InputField from '../inputField/InputField';
@@ -18,9 +19,7 @@ function UserProfile(props) {
     const { id: currentUserId } = useParams();
     const navigate = useNavigate();
 
-    const currentUser = useSelector(state => {
-        return state.users.data.find(user => user.id === +currentUserId);
-    });
+    const currentUser = useSelector(userProfilesSelector)[currentUserId];
 
     const [isEdited, setisEdited] = useState(false);
 
@@ -30,29 +29,34 @@ function UserProfile(props) {
     );
 
     useEffect(() => {
-        const initialState = currentUser ? {
-            name: currentUser.name,
-            username: currentUser.username,
-            email: currentUser.email,
-            street: currentUser.address.street,
-            city: currentUser.address.city,
-            zipcode: currentUser.address.zipcode,
-            phone: currentUser.phone,
-            website: currentUser.website,
-            comment: '',
-        } : {};
-
+        const initialState = currentUser ? currentUser : {};
         setValues(initialState);
-    }, [currentUser]);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(JSON.stringify(values));
-        setisEdited(false);
-    };
+    }, [currentUser, setValues]);
 
     function editProfileButtonClick() {
         setisEdited(true);
+    };
+
+    const isUserDataChanged = useCallback(() => {
+
+        for (const key in currentUser) {
+            if (values[key] !== currentUser[key]) {
+                return true;
+            };
+        };
+
+        return false;
+    }, [currentUser, values])
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setisEdited(false);
+
+        if (!isUserDataChanged()) {
+            return;
+        };
+
+        console.log(JSON.stringify(values));
     };
 
     return (

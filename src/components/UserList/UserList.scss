@@ -28,4 +28,13 @@
         line-height: 1.18;
         align-self: flex-end;
     }
+
+    &__error {
+        display: none;
+        color: #D91313;
+
+        &_shown {
+            display: block;
+        }
+    }
 }

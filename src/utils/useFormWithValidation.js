@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { defaultValidationErrorMessages } from './constans';
+import { defaultValidationErrorMessages } from './constants';
 
 export function useFormWithValidation(initialState = { values: {}, isFormValid: true }, overrideErrorMessages = {}) {
   const [values, setValues] = useState(initialState.values);
@@ -8,10 +8,8 @@ export function useFormWithValidation(initialState = { values: {}, isFormValid: 
   const [isFormValid, setIsFormValid] = useState(initialState.isFormValid);
 
   const handleChange = (input) => {
-    const name = input.name;
-    const value = input.value;
-    const minLength = input.minLength;
-    const validityState = input.validity;
+    const { name, value, minLength, validity: validityState } = input;
+
     let errorMessage = undefined;
 
     if (!validityState.valid) {

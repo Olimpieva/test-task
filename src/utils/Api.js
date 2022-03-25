@@ -1,4 +1,4 @@
-import { MAIN_URL } from "./constans";
+import { MAIN_URL } from "./constants";
 
 class MainApi {
     constructor(options) {
